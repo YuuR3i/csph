@@ -55,7 +55,6 @@ html {
 }
 
 body {
-  position: absolute;
   font-family: "Rubik", sans-serif;
   font-size: clamp(1rem, 2vw, 1.125rem);
   font-weight: 400;
@@ -116,6 +115,7 @@ video {
 }
 
 .heading-xl {
+  position: relative;
   color: var(--color-orange-400);
   font-family: inherit; 
   font-size: clamp(2.648rem, 6vw, 4.241rem);
@@ -123,6 +123,16 @@ video {
   line-height: 1.15;
   letter-spacing: -1px;
 }
+
+.heading-xl::before {
+  content: "Welcome to ";
+  color: var(--color-white-200);
+  position: absolute;
+  top: -1.0em; 
+  left: 0;
+  font-size: 0.7em; 
+}
+
 .heading-lg {
   font-family: inherit;
   font-size: clamp(2.179rem, 5vw, 3.176rem);
@@ -388,9 +398,11 @@ video {
   max-width: 18rem;
   height: auto;
   margin-top: 2rem;
+  margin-bottom: 2rem; 
   object-fit: cover;
   justify-self: center;
 }
+
 @media only screen and (min-width: 48rem) {
   .banner-image {
     order: 1;
