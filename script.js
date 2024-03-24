@@ -36,4 +36,36 @@ window.addEventListener("resize", () => {
    }
 });
 
+document.addEventListener("DOMContentLoaded", function(event) {
+            // Hide all sections except the home section initially
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                if (section.id !== 'home') {
+                    section.style.display = 'none';
+                }
+            });
+
+            // Add click event listeners to navbar links
+            const navLinks = document.querySelectorAll('.menu-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    // Hide all sections
+                    sections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+                    // Show the target section
+                    document.getElementById(targetId).style.display = 'block';
+
+                    // Remove active class from all links
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                    });
+
+                    // Add active class to the clicked link
+                    this.classList.add('active');
+                });
+            });
+        });
 

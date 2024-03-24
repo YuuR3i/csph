@@ -314,6 +314,10 @@ video {
   }
 }
 
+.menu-link.active {
+  color: hsl(20, 100%, 52%);
+}
+
 .burger {
   position: relative;
   display: block;
